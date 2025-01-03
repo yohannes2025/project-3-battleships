@@ -15,3 +15,10 @@ class Board:
         self.type = board_type  # "player" or "computer"
         self.guesses = []  # List to track guesses
         self.ships = []  # List to track ships
+
+    def print(self, hide_ships=False):
+        """Print the board. Optionally hide ships for the computer's board."""
+        for row in self.board:
+            row_display = ["." if hide_ships and cell == "@" else cell for cell in row]
+            print(" ".join(row_display))
+        print()
