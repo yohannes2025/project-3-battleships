@@ -6,6 +6,9 @@
 
 from random import randint
 
+scores = {"computer": 0, "player": 0}
+
+
 class Board:
     """Handles game logic, including ships, guesses, and board display."""
 
@@ -138,3 +141,7 @@ def new_game():
     populate_board(player_board)
     populate_board(computer_board)
     play_game(computer_board, player_board)  # Start the game
+
+
+# Start the game
+new_game()
