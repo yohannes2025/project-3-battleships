@@ -4,6 +4,8 @@
 
 # Ultimate Battleships Game
 
+from random import randint
+
 class Board:
     """Handles game logic, including ships, guesses, and board display."""
 
