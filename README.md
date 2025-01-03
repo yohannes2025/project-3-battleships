@@ -5,6 +5,11 @@ Battleships, also known simply as Battleship, is a classic two-player strategy g
 
 In Battleships, each player commands a fleet of ships strategically placed on a grid. The objective is to locate and "sink" the opponent’s fleet by guessing their ship positions through a series of targeted strikes. The game involves strategic thinking as players must conceal their ship placements while trying to discover their opponent’s.
 
+## Why you should play the battleship game
+Battleships is more than just a game—it's a test of strategy, anticipation, and patience. Its simplicity makes it accessible, while its depth keeps players coming back for more. Whether played on paper, a game board, or digitally, it remains an enduring favorite in family game nights and competitive play.
+
+Are you ready to command your fleet and outmaneuver your opponent? Let the battle begin!
+
 
 ## Contents
 1. [User Experience (UX)](#user-experience-ux)
@@ -69,6 +74,11 @@ Since this is a text-based game, the visual elements focus on ASCII characters.
 
 ![play game board screenshot](screenshot.png)
 
+## Key Features
+1. Strategic Placement: Players must carefully position their ships to maximize defense while minimizing predictability.
+2. Deductive Reasoning: Every missed or successful shot brings new information, challenging players to think critically and outwit their opponent.
+3. Simple Yet Engaging: The rules are straightforward, but the gameplay offers endless strategic depth and replayability.
+
 ### Accessibility
 - Keyboard-only interaction ensures the game is accessible for users with visual impairments when paired with screen readers.
 - Clear and concise text-based instructions.
@@ -80,7 +90,8 @@ Since this is a text-based game, the visual elements focus on ASCII characters.
 
 ### Frameworks, Libraries & Programs Used
 1. Python Standard Library
-2. Optional: PyInstaller for packaging the game as an executable.
+2. Heroku for deployment to the server.
+3. PEP8 Python Validator for Python Code Validation.
 
 ## Deployment & Local Development
 
@@ -111,12 +122,13 @@ Since this is a text-based game, the visual elements focus on ASCII characters.
 - Ensured accurate score tracking and endgame conditions.
 
 ### Thank You Page
-- Displayed a thank-you message and final scores after the game ends.
+- Thank you Code Institute technical staff for tutoring, mentoring, and student care.
 
 ### Full Testing
 - Conducted playthroughs to confirm all functionalities, including edge cases and invalid inputs.
 
 ## Credits
+- Code Institute Portfolio 3: Project Submission lesson  for using the set-up code for the Ultimate Battleship game.
 
 ### Code Used
 - Random number generation and validation logic for ship placement were inspired by standard Python documentation.
@@ -128,4 +140,4 @@ Since this is a text-based game, the visual elements focus on ASCII characters.
 - No media used.
 
 ### Acknowledgments
-- Special thanks to Python community forums for guidance on handling edge cases in the game logic.
+- Special thanks to Code Institute for giving me the opportunity to learn as a full stack software development.
