@@ -61,3 +61,11 @@ def valid_coordinates(x, y, board):
     valid_range = 0 <= x < board.size and 0 <= y < board.size
     return valid_range and (x, y) not in board.ships
 
+def populate_board(board):
+    """Place ships randomly on the board."""
+    while len(board.ships) < board.num_ships:
+        x, y = random_point(board.size), random_point(board.size)
+        if valid_coordinates(x, y, board):
+            board.add_ship(x, y)
+
+
