@@ -120,3 +120,21 @@ def play_game(computer_board, player_board):
     print("\nFinal Scores:")
     print(f"Player: {scores['player']}, Computer: {scores['computer']}")
 
+
+def new_game():
+    """Starts a new game by initializing boards and gameplay."""
+    size = 5
+    num_ships = 4
+    scores["computer"] = 0
+    scores["player"] = 0
+    print("Welcome to ULTIMATE BATTLESHIPS!!")
+    print(f"Board Size: {size}. Number of ships: {num_ships}")
+    print("Top left corner is row: 0, col: 0")
+    print("_" * 35)
+    player_name = input("Please enter your name: \n")
+    print("_" * 35)
+    computer_board = Board(size, num_ships, "Computer", "computer")
+    player_board = Board(size, num_ships, player_name, "player")
+    populate_board(player_board)
+    populate_board(computer_board)
+    play_game(computer_board, player_board)  # Start the game
