@@ -1,4 +1,10 @@
-# Battleship Game - Design and Development Process
+# ULTIMATE Battleships
+Battleships, also known simply as Battleship, is a classic two-player strategy game that blends deduction, tactics, and a touch of luck. Originating as a pencil-and-paper game during World War I, it has since evolved into a popular board game, digital adaptation, and mobile app enjoyed by players of all ages worldwide.
+
+## Game Overview
+
+In Battleships, each player commands a fleet of ships strategically placed on a grid. The objective is to locate and "sink" the opponent’s fleet by guessing their ship positions through a series of targeted strikes. The game involves strategic thinking as players must conceal their ship placements while trying to discover their opponent’s.
+![play game board screenshot](screenshot.png)
 
 ## Contents
 1. [User Experience (UX)](#user-experience-ux)
@@ -19,13 +25,10 @@
     - [Local Development](#local-development)
         - [How to Fork](#how-to-fork)
         - [How to Clone](#how-to-clone)
-6. [Testing](#testing)
-    - [W3C Validator](#w3c-validator)
-    - [JSHint](#jshint)
+6. [Testing](#testing)   
     - [Solved Bugs](#solved-bugs)
     - [Known Bugs](#known-bugs)
-    - [Testing User Stories](#testing-user-stories)
-    - [Lighthouse](#lighthouse)
+    - [Testing User Stories](#testing-user-stories)   
     - [Thank You Page](#thank-you-page)
     - [Full Testing](#full-testing)
 7. [Credits](#credits)
@@ -94,12 +97,6 @@ Since this is a text-based game, the visual elements focus on ASCII characters.
 
 ## Testing
 
-### W3C Validator
-- Not applicable for a Python-based text game.
-
-### JSHint
-- Not applicable for this project.
-
 ### Solved Bugs
 - Resolved issues with ship placement validation.
 - Fixed an infinite loop in random guess generation.
@@ -110,9 +107,6 @@ Since this is a text-based game, the visual elements focus on ASCII characters.
 ### Testing User Stories
 - Verified intuitive gameplay and clear turn prompts.
 - Ensured accurate score tracking and endgame conditions.
-
-### Lighthouse
-- Not applicable for a text-based game.
 
 ### Thank You Page
 - Displayed a thank-you message and final scores after the game ends.
