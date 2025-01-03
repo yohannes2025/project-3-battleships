@@ -55,3 +55,9 @@ class Board:
 def random_point(size):
     """Helper function to return a random integer between 0 and size."""
     return randint(0, size - 1)
+
+def valid_coordinates(x, y, board):
+    """Check if coordinates are valid and not already occupied."""
+    valid_range = 0 <= x < board.size and 0 <= y < board.size
+    return valid_range and (x, y) not in board.ships
+
