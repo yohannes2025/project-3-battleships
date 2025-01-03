@@ -69,3 +69,22 @@ def populate_board(board):
             board.add_ship(x, y)
 
 
+def make_guess(board):
+    """Allow a player or computer to make a guess."""
+    if board.type == "player":
+        while True:
+            try:
+                x, y = map(int, input("Enter your guess (row and column): ").split())
+                if 0 <= x < board.size and 0 <= y < board.size:
+                    return x, y
+                else:
+                    print("Invalid input. Please try again.")
+            except ValueError:
+                print("Invalid input. Enter two numbers separated by a space.")
+    else:
+        while True:
+            x, y = random_point(board.size), random_point(board.size)
+            if (x, y) not in board.guesses:
+                return x, y
+
+
