@@ -4,7 +4,7 @@ Battleships, also known simply as Battleship, is a classic two-player strategy g
 ## Game Overview
 
 In Battleships, each player commands a fleet of ships strategically placed on a grid. The objective is to locate and "sink" the opponent’s fleet by guessing their ship positions through a series of targeted strikes. The game involves strategic thinking as players must conceal their ship placements while trying to discover their opponent’s.
-![play game board screenshot](screenshot.png)
+
 
 ## Contents
 1. [User Experience (UX)](#user-experience-ux)
@@ -66,6 +66,8 @@ Since this is a text-based game, the visual elements focus on ASCII characters.
 - Text-based representation of the game board and turn prompts.
 
 ## Features
+
+![play game board screenshot](screenshot.png)
 
 ### Accessibility
 - Keyboard-only interaction ensures the game is accessible for users with visual impairments when paired with screen readers.
