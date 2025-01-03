@@ -132,6 +132,8 @@ def new_game():
     scores["computer"] = 0
     scores["player"] = 0
 
+    print("_" * 35)
+    print()
     print("Welcome to ULTIMATE BATTLESHIPS!!")
     print(f"Board Size: {size}. Number of ships: {num_ships}")
     print("Top left corner is row: 0, col: 0")
