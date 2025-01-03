@@ -50,3 +50,6 @@ class Board:
             if self.type == "player":  # Only display ships on the player's board
                 self.board[x][y] = "@"
 
+def random_point(size):
+    """Helper function to return a random integer between 0 and size."""
+    return randint(0, size - 1)
