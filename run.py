@@ -88,3 +88,35 @@ def make_guess(board):
                 return x, y
 
 
+def play_game(computer_board, player_board):
+    """Alternates turns between player and computer."""
+    while len(player_board.ships) > 0 and len(computer_board.ships) > 0:
+        # Player's turn
+        print("\nYour Board:")
+        player_board.print()
+        print("Computer's Board:")
+        computer_board.print(hide_ships=True)
+        print(f"\n{player_board.name}, it's your turn!")
+        x, y = make_guess(computer_board)
+        result = computer_board.guess(x, y)
+        if result == "Hit":
+            computer_board.ships.remove((x, y))
+        if not computer_board.ships:
+            print("You sank all the computer's ships!")
+            scores["player"] += 1
+            break
+
+        # Computer's turn
+        print("\nComputer's turn!")
+        x, y = make_guess(player_board)
+        result = player_board.guess(x, y)
+        if result == "Hit":
+            player_board.ships.remove((x, y))
+        if not player_board.ships:
+            print("The computer sank all your ships!")
+            scores["computer"] += 1
+            break
+
+    print("\nFinal Scores:")
+    print(f"Player: {scores['player']}, Computer: {scores['computer']}")
+
