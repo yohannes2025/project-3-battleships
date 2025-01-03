@@ -39,3 +39,14 @@ class Board:
             print("It's a MISS!")
             return "Miss"
 
+    def add_ship(self, x, y):
+        """Add a ship to the board at the specified coordinates."""
+        if len(self.ships) >= self.num_ships:
+            print("Error: Cannot add more ships!")
+        elif (x, y) in self.ships:
+            print("Error: Ship already placed at this location!")
+        else:
+            self.ships.append((x, y))
+            if self.type == "player":  # Only display ships on the player's board
+                self.board[x][y] = "@"
+
