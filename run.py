@@ -22,3 +22,20 @@ class Board:
             row_display = ["." if hide_ships and cell == "@" else cell for cell in row]
             print(" ".join(row_display))
         print()
+
+
+    def guess(self, x, y):
+        """Process a guess and return whether it's a hit or miss."""
+        if (x, y) in self.guesses:
+            print("Already guessed!")
+            return "Repeat"
+        self.guesses.append((x, y))
+        if (x, y) in self.ships:
+            self.board[x][y] = "X"  # Mark as hit
+            print("It's a HIT!")
+            return "Hit"
+        else:
+            self.board[x][y] = "O"  # Mark as miss
+            print("It's a MISS!")
+            return "Miss"
+
