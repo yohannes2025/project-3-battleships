@@ -104,8 +104,9 @@ def play_game(computer_board, player_board):
         print("Computer's Board:")
         computer_board.display(hide_ships=True)
         print(f"\n{player_board.name}, it's your turn!")
+        x, y = get_player_guess(computer_board) 
         if take_turn(computer_board, get_player_guess) == "Hit":
-            computer_board.ships.pop()
+            computer_board.ships.remove((x, y))
 
         if not computer_board.ships:
             print("You sank all the computer's ships! You win!")
