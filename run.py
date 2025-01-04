@@ -1,7 +1,3 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-
 # Ultimate Battleships Game
 
 from random import randint
@@ -100,13 +96,13 @@ def play_game(computer_board, player_board):
     """Alternate turns between player and computer until the game ends."""
     while player_board.ships and computer_board.ships:
         # Player's turn
-        print("\nYour Board:")
+        print("\nYour Board (with ships):")
         player_board.display()
         print("Computer's Board:")
         computer_board.display(hide_ships=True)
         print(f"\n{player_board.name}, it's your turn!")
         x, y = get_player_guess(computer_board) 
-        if take_turn(computer_board, get_player_guess) == "Hit":
+        if take_turn(computer_board, lambda b: (x, y)) == "Hit":
             computer_board.ships.remove((x, y))
 
         if not computer_board.ships:
@@ -116,8 +112,9 @@ def play_game(computer_board, player_board):
 
         # Computer's turn
         print("\nComputer's turn!")
-        if take_turn(player_board, get_computer_guess) == "Hit":
-            player_board.ships.pop()
+        x, y = get_computer_guess(player_board)
+        if take_turn(player_board, lambda b: (x, y)) == "Hit":
+            player_board.ships.remove((x, y))
 
         if not player_board.ships:
             print("The computer sank all your ships! You lose!")
@@ -130,7 +127,9 @@ def play_game(computer_board, player_board):
 def new_game():
     """Initialize and start a new game."""
     size = 5
+    # User-defined ship count
     num_ships = int(input("Enter the number of ships: "))
+    # Reset scores for a new game
     scores["computer"] = 0
     scores["player"] = 0
 
@@ -148,6 +147,8 @@ def new_game():
     player_board = Board(size, num_ships, player_name, "player")
 
     populate_board(player_board)
+    print("\nYour Board (with ships):")
+    player_board.display()  # Show player's ships
     populate_board(computer_board)
 
     play_game(computer_board, player_board)
