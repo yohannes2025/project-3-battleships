@@ -130,7 +130,7 @@ def play_game(computer_board, player_board):
 def new_game():
     """Initialize and start a new game."""
     size = 5
-    num_ships = 4
+    num_ships = int(input("Enter the number of ships: "))
     scores["computer"] = 0
     scores["player"] = 0
 
