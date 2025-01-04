@@ -76,7 +76,8 @@ def get_player_guess(board):
     """Get player's guess input."""
     while True:
         try:
-            x, y = map(int, input("Enter your guess (row and column): ").split())
+            x, y = map(int, input(
+                "Enter your guess as 'row column' (e.g., 1 2): ").split())
             if 0 <= x < board.size and 0 <= y < board.size:
                 return x, y
             print("Invalid input. Please enter values within the board's range.")
