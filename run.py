@@ -5,6 +5,7 @@ from random import randint
 # Global variable to keep track of scores
 scores = {"computer": 0, "player": 0}
 
+
 class Board:
     """Handles game logic, including ships, guesses, and board display."""
 
@@ -20,7 +21,9 @@ class Board:
     def display(self, hide_ships=False):
         """Print the board. Optionally hide ships for the computer's board."""
         for row in self.board:
-            row_display = ["." if hide_ships and cell == "@" else cell for cell in row]
+            row_display = [
+                "." if hide_ships and cell == "@" else cell for cell in row
+            ]
             print(" ".join(row_display))
         print()
 
@@ -52,14 +55,21 @@ class Board:
         if self.type == "player":  # Display ships on player's board
             self.board[x][y] = "@"
 
+
 # Helper functions
 def random_point(size):
     """Return a random integer between 0 and size-1."""
     return randint(0, size - 1)
 
+
 def valid_coordinates(x, y, board):
     """Check if coordinates are valid and not already occupied."""
-    return 0 <= x < board.size and 0 <= y < board.size and (x, y) not in board.ships
+    return (
+        0 <= x < board.size and
+        0 <= y < board.size and
+        (x, y) not in board.ships
+    )
+
 
 def populate_board(board):
     """Place ships randomly on the board."""
@@ -68,17 +78,25 @@ def populate_board(board):
         if valid_coordinates(x, y, board):
             board.add_ship(x, y)
 
+
 def get_player_guess(board):
     """Get player's guess input."""
     while True:
         try:
-            x, y = map(int, input(
-                "Enter your guess as 'row column' (e.g., 1 2): ").split())
+            x, y = map(
+                int,
+                input("Enter your guess as 'row column' (e.g., 1 2): ").split()
+            )
+
             if 0 <= x < board.size and 0 <= y < board.size:
                 return x, y
-            print("Invalid input. Please enter values within the board's range.")
+            print(
+                "Invalid input. Please enter values within the board's range."
+            )
+
         except ValueError:
             print("Invalid input. Enter two numbers separated by a space.")
+
 
 def get_computer_guess(board):
     """Generate a random guess for the computer."""
@@ -87,10 +105,12 @@ def get_computer_guess(board):
         if (x, y) not in board.guesses:
             return x, y
 
+
 def take_turn(board, guess_func):
     """Handle a single turn for either player or computer."""
     x, y = guess_func(board)
     return board.process_guess(x, y)
+
 
 def play_game(computer_board, player_board):
     """Alternate turns between player and computer until the game ends."""
@@ -101,7 +121,7 @@ def play_game(computer_board, player_board):
         print("Computer's Board:")
         computer_board.display(hide_ships=True)
         print(f"\n{player_board.name}, it's your turn!")
-        x, y = get_player_guess(computer_board) 
+        x, y = get_player_guess(computer_board)
         if take_turn(computer_board, lambda b: (x, y)) == "Hit":
             computer_board.ships.remove((x, y))
 
@@ -123,6 +143,7 @@ def play_game(computer_board, player_board):
 
     print("\nFinal Scores:")
     print(f"Player: {scores['player']}, Computer: {scores['computer']}")
+
 
 def new_game():
     """Initialize and start a new game."""
@@ -147,11 +168,10 @@ def new_game():
     player_board = Board(size, num_ships, player_name, "player")
 
     populate_board(player_board)
-    print("\nYour Board (with ships):")
-    player_board.display()  # Show player's ships
     populate_board(computer_board)
 
     play_game(computer_board, player_board)
+
 
 # Run the game
 if __name__ == "__main__":
