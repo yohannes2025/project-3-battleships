@@ -138,15 +138,32 @@ def play_game(computer_board, player_board):
 
         print(f"\n{player_board.name}, it's your turn!")
 
-        player_x, player_y = get_player_guess(computer_board)
+        while True:
 
-        player_result = take_turn(computer_board, lambda b: (player_x, player_y))
+            player_x, player_y = get_player_guess(computer_board)
+
+            player_result = take_turn(computer_board, lambda b: (player_x, player_y))
+
+            if player_result != "Repeat":  # Allow the game to proceed if the guess is valid
+
+                break
+
+            print("Please try again with a new coordinate.")
 
         if player_result == "Hit":
 
             computer_board.ships.remove((player_x, player_y))
             scores["player"] += 1  # Increment player score for a hit
 
+        # Check if the game ends after the player's turn
+
+        if not computer_board.ships:
+
+            print("You sank all the computer's ships! You win!")
+
+            scores["player"] += 1
+
+            break
 
 
         # Computer's turn
