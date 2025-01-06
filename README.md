@@ -3,72 +3,175 @@ Battleships, also known simply as Battleship, is a classic two-player strategy g
 
 ## Game Overview
 
-In Battleships, each player commands a fleet of ships strategically placed on a grid. The objective is to locate and "sink" the opponent’s fleet by guessing their ship positions through a series of targeted strikes. The game involves strategic thinking as players must conceal their ship placements while trying to discover their opponent’s.
+In this Battleships, the player commands a fleet of ships strategically placed on a grid. The objective is to locate and "sink" the opponent’s fleet, in this case, the computer by guessing it's ships positions through a series of targeted strikes. The game involves strategic thinking as player must conceal his/her ships placement while trying to discover and destroy his/her opponent’s.
 
-## Why you should play the battleship game
-Battleships is more than just a game—it's a test of strategy, anticipation, and patience. Its simplicity makes it accessible, while its depth keeps players coming back for more. Whether played on paper, a game board, or digitally, it remains an enduring favorite in family game nights and competitive play.
+## Why should you play the battleship game?
+Battleships is more than just a game-it's a test of strategy, anticipation, and patience. Its simplicity makes it accessible, while its depth keeps players coming back for more. Whether played on paper, a game board, or digitally, it remains an enduring favorite in family game nights and competitive play.
 
 Are you ready to command your fleet and outmaneuver your opponent? Let the battle begin!
 
+- [Introduction](#introduction)
+- [Project](#project)
+  - [Ultimate Battleships Game - User Goals](#Ultimate-Battleships-Game---User-Goals)
+  - [Ultimate Battleships Game - Site Owner Goals](#Ultimate-Battleships-Game---Site-Owner-Goals)
+- [Development](#development)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Resources](#resources)
+- [Testing](#testing)
+- [Future Updates](#future-updates)  
+- [Validation](#validation)
+- [Deployment](#deployment)
+  - [Heroku](#heroku)
+  - [Branching the GitHub Repository using GitHub Desktop and Visual Studio Code](#branching-the-github-repository-using-github-desktop-and-visual-studio-code)
+- [Bugs](#bugs)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
 
-## Contents
-1. [User Experience (UX)](#user-experience-ux)
-    - [Initial Discussion](#initial-discussion)
-    - [User Stories](#user-stories)
-2. [Design](#design)
-    - [Colour Scheme](#colour-scheme)
-    - [Typography](#typography)
-    - [Imagery](#imagery)
-    - [Wireframes](#wireframes)
-3. [Features](#features)
-    - [Accessibility](#accessibility)
-4. [Technologies Used](#technologies-used)
-    - [Languages Used](#languages-used)
-    - [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used)
-5. [Deployment & Local Development](#deployment-local-development)
-    - [Deployment](#deployment)
-    - [Local Development](#local-development)
-        - [How to Fork](#how-to-fork)
-        - [How to Clone](#how-to-clone)
-6. [Testing](#testing)   
-    - [Solved Bugs](#solved-bugs)
-    - [Known Bugs](#known-bugs)
-    - [Testing User Stories](#testing-user-stories)   
-    - [Thank You Page](#thank-you-page)
-    - [Full Testing](#full-testing)
-7. [Credits](#credits)
-    - [Code Used](#code-used)
-    - [Content](#content)
-    - [Media](#media)
-    - [Acknowledgments](#acknowledgments)
+## Introduction
 
----
+Welcome to the Ultimate Battleships Game! This is a console-based implementation of the classic game of Battleship where a player competes against a computer opponent. The game involves placing ships on a grid and then taking turns to guess the location of each other's ships.
 
-## User Experience (UX)
+## Project 
 
-### Initial Discussion
-The Battleship Game is a text-based interactive experience where the player competes against a computer. The primary goal is to create an engaging yet straightforward gameplay experience while maintaining functionality and usability.
+## Ultimate Battleships Game - User Goals
 
-### User Stories
-1. As a user, I want a clear and intuitive grid-based board for gameplay.
-2. As a user, I want responsive feedback on my actions (e.g., hits and misses).
-3. As a user, I want a seamless flow of turns and easy-to-understand instructions.
-4. As a user, I want to track scores and understand the outcome of the game.
+### Entertainment and Engagement
+- Enjoy a fun, strategic gameplay experience.
+- Have an intuitive and seamless user interface.
+- Experience a fair and balanced game.
 
-## Design
+### Competitive Play
+- Challenge friends or random opponents the computr in this case.
+- Improve skills through repeated play and strategizing.
+- Track wins, losses, and rankings.
 
-### Colour Scheme
-Since this is a text-based game, the visual elements focus on ASCII characters. 
-- Symbols like `.` for empty spaces, `@` for ships, `X` for hits, and `O` for misses provide clarity.
+### Ease of Access
+- Access the game easily on multiple platforms (desktop, mobile, or tablet).
+- Play without needing extensive instructions or tutorials.
 
-### Typography
-- Monospaced fonts are ideal for aligning the grid structure.
+### Customization
+- Personalize the game board, ships, and other visual elements.
+- Select difficulty levels or specific rulesets.
 
-### Imagery
-- No images are used; ASCII characters ensure cross-platform compatibility.
 
-### Wireframes
-- Text-based representation of the game board and turn prompts.
+## Ultimate Battleships Game - Site Owner Goals
+
+### User Retention and Engagement
+To ensure long-term user retention and engagement.
+
+### Monetization
+Monetizing the game effectively is essential for sustainability.
+
+### Community Growth
+Fostering a robust community will help drive traffic and promote user loyalty.
+
+### Data Collection
+Leveraging user data (with appropriate legal considerations) to improve the game experience.
+
+### Brand Building
+Building a strong brand is vital for attracting and retaining users.
+
+### Scalability
+Preparing for future growth is essential to accommodate more users.
+
+
+
+## Development
+
+Welcome to the Ultimate Battleships Game! This is a console-based implementation of the classic game of Battleship where a player competes against a computer opponent. The game involves placing ships on a grid and then taking turns to guess the location of each other's ships.
+
+### Board Class
+
+-   **Attributes:**
+
+    -   `board_size`: Size of the board
+
+    -   `num_ships`: Number of ships on the board
+
+    -   `name`: Name of the player or "Computer"
+
+    -   `type`: Type of board ("player" or "computer")
+
+    -   `guesses`: List of tuples representing guessed coordinates
+
+    -   `ships`: List of tuples representing ship coordinates
+
+-   **Methods:**
+
+    -   `__init__(self, board_size, num_ships, name, board_type)`: Initializes the board with the given size, number of ships, name, and type.
+
+    -   `display(self, hide_ships=False)`: Displays the board. If `hide_ships` is True, ships are hidden.
+
+    -   `process_guess(self, x, y)`: Processes a guess and returns whether it's a hit, miss, or repeat.
+
+    -   `add_ship(self, x, y)`: Adds a ship to the board at the specified coordinates.
+
+### Global Scores
+
+-   **Dictionary:**
+
+    -   `scores = {"computer": 0, "player": 0}`
+
+### Helper Functions
+----------------
+
+-   `random_point(board_size)`: Returns a random integer between 0 and `board_size - 1`.
+
+-   `valid_coordinates(x, y, board)`: Checks if coordinates are valid and not already occupied.
+
+-   `populate_board(board)`: Places ships randomly on the board.
+
+-   `populate_board_player(board)`: Allows the player to manually place ships on the board.
+
+-   `get_player_guess(board)`: Gets the player's guess input.
+
+-   `get_computer_guess(board)`: Generates a random guess for the computer.
+
+-   `take_turn(board, guess_func)`: Handles a single turn for either player or computer.
+
+-   `play_game(computer_board, player_board)`: Alternates turns between player and computer until the game ends.
+
+-   `new_game()`: Initializes and starts a new game.
+
+### Game Flow
+---------
+
+### Initialization
+
+-   Input: Board size, number of ships, player name
+
+-   Create `Board` instances for the computer and player
+
+### Setup Phase
+
+-   Player manually places ships
+
+-   Computer places ships randomly
+
+### Gameplay Phase
+
+-   Alternate turns between player and computer
+
+-   Handle guesses and process hits/misses
+
+-   Update scores
+
+-   Display updated boards and summary
+
+### Endgame
+
+-   Declare the winner based on remaining ships
+
+-   Display final scores
+
+### Relationships
+-------------
+
+-   `new_game()` creates `Board` objects and calls `populate_board` or `populate_board_player`.
+
+-   `play_game()` uses helper functions like `get_player_guess`, `get_computer_guess`, and `take_turn`.
+  
 
 ## Features
 
@@ -85,33 +188,135 @@ Since this is a text-based game, the visual elements focus on ASCII characters.
 ![Round score](assets/images/round_score.png)
 
 4. Input validation for 
-- Numbers out fo board's range
+- Numbers out of board's range
 - Check whether inputs are numbers
 - Checks whether the same coordinates are given more than once
   
 ![Input validation](assets/images/input_validation.png)
 
+## Technologies Used
 
-## Key Features
-1. Strategic Placement: Players must carefully position their ships to maximize defense while minimizing predictability.
-2. Deductive Reasoning: Every missed or successful shot brings new information, challenging players to think critically and outwit their opponent.
-3. Simple Yet Engaging: The rules are straightforward, but the gameplay offers endless strategic depth and replayability.
+The main technology used to create this program is Python
+
+### Resources
+
+- Visual Studio Code
+- GitHub 
+- Heroku
+
 
 ### Accessibility
 - Keyboard-only interaction ensures the game is accessible for users with visual impairments when paired with screen readers.
 - Clear and concise text-based instructions.
 
-## Technologies Used
-
-### Languages Used
-- Python
 
 ### Frameworks, Libraries & Programs Used
 1. Python Standard Library
 2. Heroku for deployment to the server.
 3. PEP8 Python Validator for Python Code Validation.
 
-## Deployment & Local Development
+
+## Testing
+
+### 1\. **Testing Methodology**
+
+#### **Unit Testing**
+
+-   Core game functions were tested in isolation to ensure they work as intended.
+-   Focus areas:
+    -   Board initialization.
+    -   Ship placement validation.
+    -   Attack logic (hit, miss, repeat).
+    -   Game-ending conditions.
+
+#### **Integration Testing**
+
+-   Verified that all components work seamlessly together in a complete game session.
+
+#### **Manual Testing**
+
+-   Simulated multiple game sessions to test user interactions and edge cases.
+
+#### **Static Code Analysis**
+
+-   Used linting tools to identify and fix formatting issues and coding standard violations.
+
+* * * * *
+
+### 2\. **Tools Used**
+
+-   **Linting**: `flake8` and `black` for PEP 8 compliance and formatting.
+-   **Manual Testing**: Command-line execution.
+
+* * * * *
+
+### 3\. **Test Cases**
+
+#### **Unit Tests**
+
+| Feature | Test Case Description | Result |
+| --- | --- | --- |
+| Board Initialization | Verify the board initializes with correct dimensions and empty cells. | ✅ Passed |
+| Ship Placement | Ensure valid placement of ships and rejection of overlaps or out-of-bounds positions. | ✅ Passed |
+| Attack Logic | Validate outcomes for hits, misses, and repeated coordinates. | ✅ Passed |
+| Game End Condition | Confirm the game ends correctly when all ships are sunk. | ✅ Passed |
+
+#### **Edge Cases**
+
+| Scenario | Test Case Description | Result |
+| --- | --- | --- |
+| Invalid Input Handling | Reject non-numeric or improperly formatted inputs gracefully. | ✅ Passed |
+| Boundary Conditions | Prevent out-of-bound attacks or placements. | ✅ Passed |
+
+* * * * *
+
+### 4\. **Static Code Analysis**
+
+-   **Flake8 Results**:
+    -   **Warnings**: Addressed all `E501: line too long` warnings.
+    -   **Other Issues**: No other significant violations found.
+
+* * * * *
+
+### 5\. **Testing Results**
+
+| Type of Test | Status |
+| --- | --- |
+| Unit Testing | ✅ Completed |
+| Integration Testing | ✅ Completed |
+| Manual Testing | ✅ Completed |
+| Static Code Analysis | ✅ Completed |
+
+* * * * *
+
+
+## Future Updates
+
+- Implementing online multiplayer features.
+- Adding sound effects and graphical enhancements to improve the user interface.
+- Expanding game mechanics, such as power-ups or special ship types.
+
+
+## Validation
+1. Syntax Validation
+    Result: The code executes without syntax errors.
+   
+2. Linter Warnings/Errors (PEP 8 Validation)
+   E501: Line Too Long:
+    Lines exceed the recommended 79 characters. These have been flagged, and corrections have been applied by splitting lines appropriately.
+   
+3. Functional Validation
+Result: The game logic functions as expected.
+    Player Input:
+        Validated correctly (e.g., invalid formats are rejected).
+        Correct handling of edge cases (e.g., out-of-bounds coordinates).
+   
+4. Integration Validation
+Result: The program runs end-to-end without crashes or critical errors:
+    A player can complete a game session from start to finish.
+    Errors are gracefully handled with appropriate messages to the user.
+
+
 
 ## Deployment
 
@@ -138,47 +343,26 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 4. Go to the CODE area on the right and select "Open with GitHub Desktop".
 5. You will be asked if you want to clone the repository - say yes.
 6. GitHub desktop will suggest what to do next - select Open code using Visual Studio Code.
+   
+The deployed project live link is [HERE](https://heroku.com/) - ***Use Ctrl (Cmd) and click to open in a new window.*** 
 
-### Local Development
+## Bugs
 
-#### How to Fork
-1. Navigate to the repository on GitHub.
-2. Click on the "Fork" button to create a copy in your account.
+The following bugs are tracked and handled, invalid input, out-of-bounds cooedinates, inccorect game end conditions, invalid ship placement, ship overlap, and board display formatting.
 
-#### How to Clone
-1. Copy the repository URL.
-2. Run `git clone <repository-url>` in your terminal.
-
-## Testing
-
-### Solved Bugs
-- Resolved issues with ship placement validation.
-- Fixed an infinite loop in random guess generation.
-
-### Known Bugs
-- Rare edge cases where the computer might repeat guesses.
-
-### Testing User Stories
-- Verified intuitive gameplay and clear turn prompts.
-- Ensured accurate score tracking and endgame conditions.
-
-### Thank You Page
-- Thank you Code Institute technical staff for tutoring, mentoring, and student care.
-
-### Full Testing
-- Conducted playthroughs to confirm all functionalities, including edge cases and invalid inputs.
 
 ## Credits
-- Code Institute Portfolio 3: Project Submission lesson  for using the set-up code for the Ultimate Battleship game.
 
 ### Code Used
 - Random number generation and validation logic for ship placement were inspired by standard Python documentation.
+- Code Institute Portfolio 3: Project Submission lesson  for using the sample code for this Ultimate Battleship game project.
 
 ### Content
-- Game rules based on the classic Battleship board game.
-
-### Media
-- No media used.
+- Game rules based on the classic Battleship board game from [wikipedia ](https://en.wikipedia.org/wiki/Battleship)
 
 ### Acknowledgments
 - Special thanks to Code Institute for giving me the opportunity to learn as a full stack software development.
+- Tutor support for helping me to understsnd the Love Sandwiches sample project.
+- My mentor Jubril Akolade for teaching me the assessment criteria and general guide of python project.
+
+
