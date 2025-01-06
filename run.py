@@ -11,7 +11,11 @@ class Board:
 
     def __init__(self, board_size, num_ships, name, board_type):
         self.board_size = board_size
-        self.board = [["." for _ in range(board_size)] for _ in range(board_size)]
+        self.board = [
+            ["." for _ in range(board_size)] 
+            for _ in range(board_size)
+        ]
+
         self.num_ships = num_ships
         self.name = name
         self.type = board_type  # "player" or "computer"
@@ -87,7 +91,8 @@ def populate_board_player(board):
             x, y = map(
                 int,
                 input(
-                    f"Enter coordinates for ship {len(board.ships) + 1} as 'row column' (e.g., 1 2): "
+                    f"Enter coordinates for ship {len(board.ships) + 1} " 
+                    "as 'row column' (e.g., 1 2): "
                 ).split()
             )
 
@@ -96,9 +101,16 @@ def populate_board_player(board):
                 print(f"Ship placed at ({x}, {y}).")
                 board.display()
             else:
-                print("Invalid coordinates or location already occupied. Try again.")
+                print(
+                    "Invalid coordinates or location already occupied. "
+                    "Try again."
+                )
+
         except ValueError:
-            print("Invalid input. Please enter two numbers separated by a space.")
+            print(
+                "Invalid input. Please enter two numbers "
+                "separated by a space."
+            )
 
 
 def get_player_guess(board):
@@ -112,11 +124,18 @@ def get_player_guess(board):
 
             if 0 <= x < board.board_size and 0 <= y < board.board_size:
                 return x, y
-             # Specific comment for out-of-range input
 
-            print(f"Invalid input. Please enter a number between {0} and {board.board_size - 1} for both row and column.")
+            # Specific comment for out-of-range input
+            print(
+                f"Invalid input. Please enter a number between {0} and "
+                f"{board.board_size - 1} for both row and column."
+            )
+
         except ValueError:
-            print("Invalid input. Plese enter two numbers separated by a space.")
+            print(
+                "Invalid input. Please enter two numbers "
+                "separated by a space."
+            )
 
 
 def get_computer_guess(board):
@@ -147,14 +166,17 @@ def play_game(computer_board, player_board):
         print("Computer's Board:")
         computer_board.display(hide_ships=True)
 
-
         # Player's turn
-
         print(f"\n{player_board.name}, it's your turn!")
         while True:
             player_x, player_y = get_player_guess(computer_board)
-            player_result = take_turn(computer_board, lambda b: (player_x, player_y))
-            if player_result != "Repeat":  # Allow the game to proceed if the guess is valid
+            player_result = take_turn(
+                computer_board, 
+                lambda b: (player_x, player_y)
+            )
+
+            # Allow the game to proceed if the guess is valid
+            if player_result != "Repeat":  
                 break
 
             print("Please try again with new coordinates.")
@@ -163,33 +185,36 @@ def play_game(computer_board, player_board):
             computer_board.ships.remove((player_x, player_y))
             scores["player"] += 1  # Increment player score for a hit  
 
-
         # Computer's turn
-
         computer_x, computer_y = get_computer_guess(player_board)
-        computer_result = take_turn(player_board, lambda b: (computer_x, computer_y))
+        computer_result = take_turn(
+            player_board, 
+            lambda b: (computer_x, computer_y)
+        )
+
         if computer_result == "Hit":
             player_board.ships.remove((computer_x, computer_y))
             scores["computer"] += 1  # Increment computer score for a hit
-
         
         # Round Summary
-
         print("\nSummary:")      
         print(f"Player guessed: ({player_x}, {player_y}) - {player_result}")
-        print(f"Computer guessed: ({computer_x}, {computer_y}) - {computer_result}")
-        print("_" * 35)
+        print(
+            f"Computer guessed: ({computer_x}, {computer_y}) - "
+            f"{computer_result}"
+        )
 
+        print("_" * 35)
 
         # Scores after each round
-
         print(f"After round {round_num}, the scores are:")
-        print(f"{player_board.name}: {scores['player']} \tComputer: {scores['computer']}")
+        print(
+            f"{player_board.name}: {scores['player']} \t"
+            f"Computer: {scores['computer']}"
+        )
         print("_" * 35)
 
-
-         # Check for end of game
-
+        # Check for end of game
         if not computer_board.ships:
             print("You sank all the computer's ships! You win!")
             scores["player"] 
@@ -198,21 +223,23 @@ def play_game(computer_board, player_board):
         if not player_board.ships:
             print("The computer sank all your ships! You lose!")
             scores["computer"]
-            break
-        
+            break        
 
         # Prompt to continue or quit
+        choice = input(
+            "Enter any key to continue or 'n' to quit: "
+        ).strip().lower()
 
-        choice = input("Enter any key to continue or 'n' to quit: ").strip().lower()
         if choice == 'n':
             print("You chose to quit the game. Thank you for playing!")
-            return  # Exit the function, ending the game
-
+            return  # Exit the function, ending the game         
 
     # Final scores
-
     print("\nFinal Scores:")
-    print(f"{player_board.name}: {scores['player']}, Computer: {scores['computer']}")
+    print(
+        f"{player_board.name}: {scores['player']}, "
+        f"Computer: {scores['computer']}"
+    )
 
 
 def new_game():
