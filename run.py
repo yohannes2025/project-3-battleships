@@ -77,6 +77,30 @@ def populate_board(board):
             board.add_ship(x, y)
 
 
+def populate_board_player(board):
+
+    """Allow the player to manually place ships on the board."""
+
+    print(f"{board.name}, it's time to place your ships!")
+    while len(board.ships) < board.num_ships:
+        try:
+            x, y = map(
+                int,
+                input(
+                    f"Enter coordinates for ship {len(board.ships) + 1} as 'row column' (e.g., 1 2): "
+                ).split()
+            )
+
+            if valid_coordinates(x, y, board):
+                board.add_ship(x, y)
+                print(f"Ship placed at ({x}, {y}).")
+                board.display()
+            else:
+                print("Invalid coordinates or location already occupied. Try again.")
+        except ValueError:
+            print("Invalid input. Please enter two numbers separated by a space.")
+
+
 def get_player_guess(board):
     """Get player's guess input."""
     while True:
@@ -209,7 +233,11 @@ def new_game():
     print("_" * 35)
     computer_board = Board(board_size, num_ships, "Computer", "computer")
     player_board = Board(board_size, num_ships, player_name, "player")
-    populate_board(player_board)
+
+    # Players manually places their ships
+    populate_board_player(player_board)    
+
+    # Computer ships are placed randomly
     populate_board(computer_board)
     play_game(computer_board, player_board)
 
