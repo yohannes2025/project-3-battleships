@@ -30,7 +30,7 @@ class Board:
     def process_guess(self, x, y):
         """Process a guess and return whether it's a hit, miss, or repeat."""
         if (x, y) in self.guesses:
-            print("You can not guess the same coordinate more than once")
+            print("You can not guess the same coordinates more than once")
             return "Repeat"
 
         self.guesses.append((x, y))
@@ -88,7 +88,9 @@ def get_player_guess(board):
 
             if 0 <= x < board.BOARD_SIZE and 0 <= y < board.BOARD_SIZE:
                 return x, y
-            print("Invalid input. Please enter values within the board's range.")
+             # Specific comment for out-of-range input
+
+            print(f"Invalid input. Please enter a number between {0} and {board.BOARD_SIZE - 1} for both row and column.")
 
         except ValueError:
             print(f"Invalid input. Plese enter two numbers separated by a space.")
@@ -146,7 +148,7 @@ def play_game(computer_board, player_board):
 
                 break
 
-            print("Please try again with a new coordinate.")
+            print("Please try again with a new coordinates.")
 
         if player_result == "Hit":
 
@@ -173,7 +175,7 @@ def play_game(computer_board, player_board):
 
             print("The computer sank all your ships! You lose!")
 
-            scores["computer"] += 1
+            scores["computer"] 
 
             break
 
@@ -209,7 +211,7 @@ def play_game(computer_board, player_board):
 
             print("You sank all the computer's ships! You win!")
 
-            scores["player"] += 1
+            scores["player"] 
 
             break
 
