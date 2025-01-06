@@ -30,18 +30,16 @@ class Board:
     def process_guess(self, x, y):
         """Process a guess and return whether it's a hit, miss, or repeat."""
         if (x, y) in self.guesses:
-            print("You Already guessed! You can not guess the same coordinate more than once")
+            print("You can not guess the same coordinate more than once")
             return "Repeat"
 
         self.guesses.append((x, y))
 
         if (x, y) in self.ships:
-            self.board[x][y] = "X"  # Mark as hit
-            print("It's a HIT!")
+            self.board[x][y] = "X"  # Mark as hit            
             return "Hit"
 
-        self.board[x][y] = "O"  # Mark as miss
-        print("It's a MISS!")
+        self.board[x][y] = "O"  # Mark as miss        
         return "Miss"
 
     def add_ship(self, x, y):
@@ -155,20 +153,10 @@ def play_game(computer_board, player_board):
             computer_board.ships.remove((player_x, player_y))
             scores["player"] += 1  # Increment player score for a hit
 
-        # Check if the game ends after the player's turn
-
-        if not computer_board.ships:
-
-            print("You sank all the computer's ships! You win!")
-
-            scores["player"] += 1
-
-            break
+        
 
 
         # Computer's turn
-
-        print("\nComputer's turn!")
 
         computer_x, computer_y = get_computer_guess(player_board)
 
@@ -179,7 +167,15 @@ def play_game(computer_board, player_board):
             player_board.ships.remove((computer_x, computer_y))
             scores["computer"] += 1  # Increment computer score for a hit
 
+        # Check if the game ends after the computer's turn
 
+        if not player_board.ships:
+
+            print("The computer sank all your ships! You lose!")
+
+            scores["computer"] += 1
+
+            break
 
         # Round Summary
 
@@ -227,6 +223,15 @@ def play_game(computer_board, player_board):
 
             break
 
+        # Prompt to continue or quit
+
+        choice = input("Enter any key to continue or 'n' to quit: ").strip().lower()
+
+        if choice == 'n':
+
+            print("You chose to quit the game. Thank you for playing!")
+
+            return  # Exit the function, ending the game
 
 
     print("\nFinal Scores:")
@@ -236,7 +241,7 @@ def play_game(computer_board, player_board):
 
 def new_game():
     """Initialize and start a new game."""
-    BOARD_SIZE = int(input("Enter BOARD_SIZE: "))
+    BOARD_SIZE = int(input("Enter board size: "))
     # User-defined ship count
     num_ships = int(input("Enter the number of ships: "))
     # Reset scores for a new game
