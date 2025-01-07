@@ -12,6 +12,8 @@ Battleships is more than just a game-it's a test of strategy, anticipation, and 
 
 Are you ready to command your fleet and outmaneuver your opponent? Let the battle begin!
 
+The deployed project live link is [HERE](https://portfolio-3-d66e66723f07.herokuapp.com/) - ***Use Ctrl (Cmd) and click to open in a new window.*** 
+
 - [Introduction](#introduction)
 - [Project](#project)
   - [Ultimate Battleships Game - User Goals](#Ultimate-Battleships-Game---User-Goals)
@@ -345,7 +347,7 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 5. You will be asked if you want to clone the repository - say yes.
 6. GitHub desktop will suggest what to do next - select Open code using Visual Studio Code.
    
-The deployed project live link is [HERE](https://portfolio-3-d66e66723f07.herokuapp.com/) - ***Use Ctrl (Cmd) and click to open in a new window.*** 
+
 
 ## Bugs
 
