@@ -364,6 +364,6 @@ The following bugs are tracked and handled, invalid input, out-of-bounds cooedin
 ### Acknowledgments
 - Special thanks to Code Institute for giving me the opportunity to learn as a full stack software developer.
 - Tutor support for helping me to understsnd the Love Sandwiches sample project, which was the base for this project.
-- My mentor Jubril Akolade for teaching me the assessment criteria and general guide and followup of my all portfolio projects.
+- My mentor Jubril Akolade for teaching me the assessment criteria and general guide and followup of all my portfolio projects.
 
 
