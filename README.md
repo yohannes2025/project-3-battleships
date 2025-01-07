@@ -328,13 +328,12 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 2. Create a new app, add a unique app name ( for example corri-construction-p3) and then choose your region
 3. Click on create app
 4. Go to "Settings"
-5. Under Config Vars add the private API key information using key 'CRED' and into the value area copy the API key information added to the .json file.  Also add a key 'PORT' and value '8000'.
-6. Add required buildpacks (further dependencies). For this project, set it up so Python will be on top and Node.js on bottom
-7. Go to "Deploy" and select "GitHub" in "Deployment method"
-8. To connect Heroku app to your Github repository code enter your repository name, click 'Search' and then 'Connect' when it shows below.
-9.  Choose the branch you want to build your app from
-10. If preferred, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
-11. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
+5. Add required buildpacks (further dependencies). For this project, set it up so Python will be on top and Node.js on bottom
+6. Go to "Deploy" and select "GitHub" in "Deployment method"
+7. To connect Heroku app to your Github repository code enter your repository name, click 'Search' and then 'Connect' when it shows below.
+8. Choose the branch you want to build your app from
+9. If preferred, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
+10. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
 
 ### Branching the GitHub Repository using GitHub Desktop and Visual Studio Code
 1. Go to the GitHub repository.
@@ -361,8 +360,8 @@ The following bugs are tracked and handled, invalid input, out-of-bounds cooedin
 - Game rules based on the classic Battleship board game from [wikipedia ](https://en.wikipedia.org/wiki/Battleship)
 
 ### Acknowledgments
-- Special thanks to Code Institute for giving me the opportunity to learn as a full stack software development.
-- Tutor support for helping me to understsnd the Love Sandwiches sample project.
-- My mentor Jubril Akolade for teaching me the assessment criteria and general guide of python project.
+- Special thanks to Code Institute for giving me the opportunity to learn as a full stack software developer.
+- Tutor support for helping me to understsnd the Love Sandwiches sample project, which was the base for this project.
+- My mentor Jubril Akolade for teaching me the assessment criteria and general guide and followup of my all portfolio projects.
 
 
